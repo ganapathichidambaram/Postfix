@@ -59,6 +59,17 @@ And add DNS TXT entry with content of dkim.txt which is generated from opendkim-
           "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtNchMEHZ4U+7sYE69ZapO+hCPgbqx87muMKwwcM/voqrgLhCv/OOnHhcawoCb6buCwVrb+GgU0hHS+UqcTsFS3BTeFuPis5fXdoXzqUgOj1q6k/wqlscYRQJq+M+j+cufR2i7e8O1DQ/KO8tCjkZenOhPYZ8LA6HaagMTQgyGBP8HqgAMsY2PEGchdfB2SezGrZ1ZogvoUeGaH"
           "2A9AmUGJQzU3SPAbBs53v6SG5ePrhTRf6spC47THccCJfE7za5smMjVzkO9jD85XyQvAR6q/jVtaM9HbLT6+ipcydmaMT/9+SOG5JvvDHPrnDEAPKf3oTKSEmCa1VRKJNWCi8EpQIDAQAB" )
 
+Now integrate opendkim with postfix to use opendkim key by adding below line at end of file(**/etc/postfix/main.cf**)
+
+	.. code:: bash
+
+		# DKIM
+		# --------------------------------------
+		milter_default_action = accept
+		milter_protocol = 2
+		smtpd_milters = inet:127.0.0.1:8891
+		non_smtpd_milters = inet:127.0.0.1:8891
+
 
 SPF Record
 ===================

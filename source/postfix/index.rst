@@ -215,20 +215,6 @@ Now we will activate SASL to force authentication for sending emails and hand of
 	 smtpd_sender_restrictions = permit_sasl_authenticated
 	 smtpd_recipient_restrictions = check_recipient_access hash:/etc/postfix/custom_replies
 
-
-	 # Allow authenticated users to send email, and use Dovecot to authenticate them. Tells Postfix to use Dovecot for authentication
-	 virtual_transport = dovecot
-	 dovecot_destination_recipient_limit = 1
-	 smtpd_sasl_type = dovecot
-	 smtp_sasl_type = dovecot
-
-	 # DKIM
-	 # --------------------------------------
-	 milter_default_action = accept
-	 milter_protocol = 2
-	 smtpd_milters = inet:127.0.0.1:8891
-	 non_smtpd_milters = inet:127.0.0.1:8891
-
 Now let's edit the /etc/postfix/master.cf configuration file. It's the process configuration file. 
 We will enable secure SMTP ports by adding or uncomment the lines below and make a copy before.
 
@@ -254,8 +240,6 @@ We will enable secure SMTP ports by adding or uncomment the lines below and make
 		-o smtpd_sasl_auth_enable=yes
 		-o smtpd_client_restrictions=permit_sasl_authenticated,reject
 		-o milter_macro_daemon_name=ORIGINATING
-	 dovecot   unix  -       n       n       -       -       pipe
-		flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f ${sender} -d ${user}@${nexthop}
 
 Now you can run the postconf -n command to check some errors.
 

@@ -86,7 +86,7 @@ You can have emails on your domain using the same server. When you start you don
 To add a domain, go to Domains List -> New Domain.
 
 	.. image:: /img/08-postfixadmin-add-domain-menu.png
-	:align: center
+		:align: center
 
 Then enter the information about the domain. You can limit the number of aliases and mailboxes. 
 Remember to add the MX record.  When finish to choose your values, add the domain.

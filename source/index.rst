@@ -16,10 +16,3 @@ Welcome to Postfix Email Server's documentation!
    postfix/index
    dovecot/index
    delivery/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

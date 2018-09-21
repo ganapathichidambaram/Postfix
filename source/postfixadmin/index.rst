@@ -57,3 +57,41 @@ content on **/opt/postfixadmin/config.local.php** file.
 		$CONF['database_name'] = 'postfix';
 		$CONF['configured'] = true;
 		?>
+
+we should need to create **templates_c** directory manually and give www-data permission.
+
+	.. code:: bash
+
+	 mkdir /opt/postfixadmin/templates_c
+	 chmod 755 -R /opt/postfixadmin/templates_c
+	 chown -R www-data:www-data /opt/postfixadmin/templates_c
+
+Then access https://yourdomain.com/pfa/setup.php you will see that it works now and it checks all the configuration, 
+shows the version of your php and Ubuntu.
+Now we should create a password for the setup and generate its hash
+
+	.. image:: /img/03-postfixadmin-genpassword.png
+
+
+Now create your superuser account by filling below form.
+
+	.. image:: /img/04-postfixadmin-superadmin-account.png
+
+
+Create virtual domains, users, and alias
+-----------------------------------------------
+Now we will create the virtuals domains, then the users. A domain is a domain name such as mytuto.com. 
+You can have emails on your domain using the same server. When you start you don't have any domain. 
+
+To add a domain, go to Domains List -> New Domain.
+
+	.. image:: /img/08-postfixadmin-add-domain-menu.png
+
+Then enter the information about the domain. You can limit the number of aliases and mailboxes. 
+Remember to add the MX record.  When finish to choose your values, add the domain.
+
+	.. image:: /img/09-postfixadmin-add-domain.png
+
+We can now create our virtual users. To do this, go to Virtual List -> Add mailbox.
+
+	.. image:: /img/11-postfixadmin-add-virtualuser-mailboxes.png

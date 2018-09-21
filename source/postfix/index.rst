@@ -171,13 +171,13 @@ Now we will activate SASL to force authentication for sending emails and hand of
 
 	 # vim /etc/postfix/main.cf
 	 # --------------------------------------
-	 myhostname = mail.hoppr.in
-	 mydomain = hoppr.in
+	 myhostname = mail.mytuto.com
+	 mydomain = mytuto.com
 	 alias_maps = hash:/etc/aliases
 	 alias_database = hash:/etc/aliases
 	 myorigin = /etc/mailname
-	 virtual_alias_domains = mail.hoppr.in
-	 mydestination = $myhostname, mail.hoppr.in, ip-172-30-1-40, localhost.localdomain, localhost
+	 virtual_alias_domains = mail.mytuto.com
+	 mydestination = $myhostname, mail.mytuto.com, ip-172-30-1-40, localhost.localdomain, localhost
 	 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 	 # --------------------------------------
 	 mailbox_size_limit = 0
@@ -206,10 +206,10 @@ Now we will activate SASL to force authentication for sending emails and hand of
 	 smtpd_tls_security_level = may
 	 smtpd_tls_auth_only = yes
 	 smtp_tls_security_level = may
-	 smtpd_tls_cert_file=/etc/letsencrypt/live/mail.hoppr.in/fullchain.pem
-	 smtpd_tls_key_file=/etc/letsencrypt/live/mail.hoppr.in/privkey.pem
-	 smtp_tls_cert_file=/etc/letsencrypt/live/mail.hoppr.in/fullchain.pem
-	 smtp_tls_key_file=/etc/letsencrypt/live/mail.hoppr.in/privkey.pem
+	 smtpd_tls_cert_file=/etc/letsencrypt/live/mail.mytuto.com/fullchain.pem
+	 smtpd_tls_key_file=/etc/letsencrypt/live/mail.mytuto.com/privkey.pem
+	 smtp_tls_cert_file=/etc/letsencrypt/live/mail.mytuto.com/fullchain.pem
+	 smtp_tls_key_file=/etc/letsencrypt/live/mail.mytuto.com/privkey.pem
 	 smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
 	 smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 	 smtpd_sender_restrictions = permit_sasl_authenticated

@@ -1,5 +1,5 @@
 =====================================================
-Postfix Email Server 
+About Postfix Email Server 
 =====================================================
 
 Postfix is a free email server originally developed as an alternative,simpler and more secure to sendmail.

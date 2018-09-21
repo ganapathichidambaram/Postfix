@@ -11,6 +11,7 @@ Welcome to Postfix Email Server's documentation!
    :caption: Contents:
 
    about
+   basics
    postfixadmin/index
    postfix/index
    dovecot/index

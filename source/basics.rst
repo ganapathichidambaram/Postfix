@@ -98,7 +98,7 @@ operating systems. If you already have valid certificates, you can use them inst
 		listen [::]:80 default_server;
 		root /var/www/html;
 		index index.php index.html index.htm index.nginx-debian.html;
-		server_name mail.hoppr.in;
+		server_name mail.mytuto.com;
 		location / {
                 try_files $uri $uri/ =404;
 		}
@@ -127,7 +127,7 @@ operating systems. If you already have valid certificates, you can use them inst
 		listen 443 ssl http2;
 		root /var/www/html;
 		index index.php index.html index.htm index.nginx-debian.html;
-		server_name mail.hoppr.in;
+		server_name mail.mytuto.com;
 		location / {
                 try_files $uri $uri/ =404;
 		}
@@ -150,9 +150,9 @@ operating systems. If you already have valid certificates, you can use them inst
 		location ~ /\.ht {
                 deny all;
 		}
-		ssl_certificate /etc/letsencrypt/live/mail.hoppr.in/fullchain.pem;
-		ssl_certificate_key /etc/letsencrypt/live/mail.hoppr.in/privkey.pem;
-		ssl_trusted_certificate /etc/letsencrypt/live/mail.hoppr.in/chain.pem;
+		ssl_certificate /etc/letsencrypt/live/mail.mytuto.com/fullchain.pem;
+		ssl_certificate_key /etc/letsencrypt/live/mail.mytuto.com/privkey.pem;
+		ssl_trusted_certificate /etc/letsencrypt/live/mail.mytuto.com/chain.pem;
 		include snippets/ssl.conf;
 		include snippets/letsencrypt.conf;
 	 }
@@ -165,7 +165,7 @@ operating systems. If you already have valid certificates, you can use them inst
 
 * Generate certificate using below command.
 
-	 certbot certonly --standalone --rsa-key-size 4096 -d mail.hoppr.in -d imap.hoppr.in -d smtp.hoppr.in
+	 certbot certonly --standalone --rsa-key-size 4096 -d mail.mytuto.com -d imap.mytuto.com -d smtp.mytuto.com
 
 * And letsencrypt certificate valid only for 90 days, so add cron jobs to auto renewal.
 

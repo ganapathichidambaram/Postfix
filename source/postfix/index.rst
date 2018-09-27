@@ -183,7 +183,7 @@ Now we will activate SASL to force authentication for sending emails and hand of
 	 mailbox_size_limit = 0
 	 recipient_delimiter = +
 	 inet_interfaces = all
-	 inet_protocols = all
+	 inet_protocols = ipv4
 	 # --------------------------------------
 	 virtual_mailbox_domains = mysql:/etc/postfix/sql/mysql_virtual_domains_maps.cf
 	 virtual_mailbox_maps = mysql:/etc/postfix/sql/mysql_virtual_mailbox_maps.cf
@@ -250,6 +250,30 @@ Now you can run the postconf -n command to check some errors.
 	 alias_maps = hash:/etc/aliases
 	 ...
 	 ...
+
+To Remove Originate IP , hostname and Mailer information for security. Add the below content in **/etc/postfix/header_checks** file.Then you need to inegrate into postfix.
+
+
+	::
+		
+		/^Received:.*with ESMTPSA/              IGNORE
+		/^X-Originating-IP:/    IGNORE
+		/^X-Mailer:/            IGNORE
+		/^Mime-Version:/        IGNORE
+
+And add into **/etc/postfix/main.cf** like mentioned below.
+
+	.. code:: bash
+
+		header_checks = regexp:/etc/postfix/header_checks
+		mime_header_checks = regexp:/etc/postfix/header_checks
+
+Execute postmap to generate database which can able to read by postfix.
+
+	.. code :: bash
+
+		#postmap /etc/postfix/header_checks
+
 
 If you have no warning messages, it means that your files do not contain errors. Now you can restart the postfix service.
 

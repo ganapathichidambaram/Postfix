@@ -30,7 +30,7 @@ Installation
 
 	.. code:: bash
 
-	 rm -f /etc/nginx/site-enabled/default
+	 rm -f /etc/nginx/sites-enabled/default
 
 
 Setup TLS Certificates
@@ -90,7 +90,7 @@ operating systems. If you already have valid certificates, you can use them inst
 	 add_header X-Frame-Options SAMEORIGIN;
 	 add_header X-Content-Type-Options nosniff;
 
-* Add mentioned below our custom site directory configuration into **/etc/nginx/site-enabled/postfix** as per our need.
+* Add mentioned below our custom site directory configuration into **/etc/nginx/sites-enabled/postfix** as per our need.
 
 	:: 
 
